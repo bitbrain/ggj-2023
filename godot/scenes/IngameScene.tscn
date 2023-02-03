@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cik30de5gaaah"]
+[gd_scene load_steps=13 format=3 uid="uid://cik30de5gaaah"]
 
 [ext_resource type="Script" path="res://scenes/IngameScene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="1_y6ebv"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://ccemw0q3ryqvo" path="res://gameplay/water/WaterDrop.tscn" id="5_ymd2v"]
 [ext_resource type="PackedScene" uid="uid://da021ebdwomt7" path="res://gameplay/hazard/Hazard.tscn" id="6_uy3an"]
 [ext_resource type="PackedScene" uid="uid://bxiju2x2w34uw" path="res://ui/overlays/GameOverOverlay.tscn" id="9_48hko"]
+[ext_resource type="AudioStream" uid="uid://c4fvx7dylwbgn" path="res://audio/ambiences/Ambience_Wasteland(loop).ogg" id="11_by6hs"]
+[ext_resource type="PackedScene" uid="uid://otpvrdggf6gf" path="res://gameplay/tree/ForestTree.tscn" id="12_wmh6b"]
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_objyc")
@@ -84,3 +86,11 @@ visible = false
 unique_name_in_owner = true
 process_mode = 2
 visible = false
+
+[node name="DesertAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_by6hs")
+volume_db = -10.0
+autoplay = true
+
+[node name="ForestTree" parent="." instance=ExtResource("12_wmh6b")]
+position = Vector2(393, 221)
