@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4audav6d3llq"]
+[gd_scene load_steps=8 format=3 uid="uid://d4audav6d3llq"]
 
 [ext_resource type="Script" path="res://gameplay/seed/Seed.gd" id="1_ntw8m"]
 [ext_resource type="Texture2D" uid="uid://doh57od1s6yi" path="res://spritesheet.png" id="2_3euiq"]
 [ext_resource type="PackedScene" uid="uid://dbm23pxb4jw2r" path="res://gameplay/seed/SeedHealth.tscn" id="3_c61l2"]
 [ext_resource type="PackedScene" uid="uid://dqjvsgqgj2hna" path="res://gameplay/seed/SeedGrowth.tscn" id="3_j2imb"]
+[ext_resource type="PackedScene" uid="uid://dethyjfdbf8sp" path="res://gameplay/ground/GroundControl.tscn" id="5_k3ajv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qp0xj"]
 radius = 2.0
@@ -27,3 +28,5 @@ texture = SubResource("AtlasTexture_3m8qa")
 [node name="SeedGrowth" parent="." instance=ExtResource("3_j2imb")]
 
 [node name="SeedHealth" parent="." instance=ExtResource("3_c61l2")]
+
+[node name="GroundControl" parent="." instance=ExtResource("5_k3ajv")]

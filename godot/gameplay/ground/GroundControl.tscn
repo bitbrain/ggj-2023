@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://gameplay/ground/GroundControl.gd" id="1_cvfc2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_31rcb"]
+radius = 5.0
 
 [node name="GroundControl" type="Area2D"]
 collision_layer = 0

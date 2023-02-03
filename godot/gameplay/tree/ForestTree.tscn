@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://otpvrdggf6gf"]
+
+[ext_resource type="Texture2D" uid="uid://doh57od1s6yi" path="res://spritesheet.png" id="1_enmh5"]
+[ext_resource type="Script" path="res://gameplay/tree/ForestTree.gd" id="1_u6axo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbu1u"]
+atlas = ExtResource("1_enmh5")
+region = Rect2(160, 64, 32, 48)
+
+[node name="ForestTree" type="Node2D"]
+script = ExtResource("1_u6axo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -23)
+texture = SubResource("AtlasTexture_fbu1u")
+
+[node name="SeedSpawnPosition" type="Marker2D" parent="."]
+position = Vector2(6, -34)
