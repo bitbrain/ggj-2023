@@ -14,6 +14,8 @@ config/name="The Last Seed"
 config/description="A game built in 48 hours during Global Game Jam 2023."
 run/main_scene="res://scenes/boot/godot/GodotBootsplashScene.tscn"
 config/features=PackedStringArray("4.0")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -87,6 +89,11 @@ pause={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
+ui_touch={
+"deadzone": 0.5,
+"events": [null, null, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+]
+}
 
 [internationalization]
 
@@ -94,4 +101,4 @@ locale/translations=PackedStringArray("res://i18n/translation.de.translation", "
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.211765, 0.239216, 0.321569, 1)
+environment/defaults/default_clear_color=Color(0.129412, 0.0941176, 0.105882, 1)

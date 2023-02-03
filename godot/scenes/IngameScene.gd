@@ -1,7 +1,9 @@
 extends Node2D
 
-@onready var fade_overlay = %FadeOverlay
-@onready var pause_overlay = %PauseOverlay
+@onready var fade_overlay := %FadeOverlay
+@onready var pause_overlay := %PauseOverlay
+@onready var seed_controller := %SeedController
+@onready var seed := %Seed
 
 func _ready() -> void:
 	fade_overlay.visible = true
@@ -10,6 +12,9 @@ func _ready() -> void:
 		SaveGame.load_game(get_tree())
 	
 	pause_overlay.game_exited.connect(_save_game)
+	
+	# connect signals
+	seed_controller.shoot.connect(seed.apply_impulse)
 
 func _input(event) -> void:
 	if event.is_action_pressed("pause") and not pause_overlay.visible:
