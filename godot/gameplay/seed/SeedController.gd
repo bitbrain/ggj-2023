@@ -3,7 +3,10 @@ class_name SeedController extends Area2D
 signal shoot(force:Vector2)
 
 @export var debug := false
-@export var maximum_length := 200.0
+@export var maximum_length := 400.0
+@export var strength := 0.5
+
+@onready var ground_control := $GroundControl
 
 var position_start := Vector2()
 var position_end := Vector2()
@@ -28,6 +31,10 @@ func _draw() -> void:
 		2)
 		
 func _on_input_event(_viewport, event, _shape_idx) -> void:
+	
+	if not ground_control.is_touching_ground():
+		return
+	
 	if event.is_action_pressed("ui_touch"):
 		touch_down = true
 		position_start = event.position
@@ -35,12 +42,12 @@ func _on_input_event(_viewport, event, _shape_idx) -> void:
 		
 func _input(event: InputEvent) -> void:
 	
-	if not touch_down:
+	if not touch_down or not ground_control.is_touching_ground():
 		return
 		
 	if event.is_action_released("ui_touch"):
 		touch_down = false
-		shoot.emit(force)
+		shoot.emit(force * strength)
 		queue_redraw()
 	
 	if event is InputEventMouseMotion:
@@ -48,3 +55,4 @@ func _input(event: InputEvent) -> void:
 		#TODO fix clamping of force vector
 		force = -(position_end - position_start)
 		queue_redraw()
+

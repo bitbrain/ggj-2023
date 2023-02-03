@@ -1,18 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8gafnaxglmu7"]
+[gd_scene load_steps=5 format=3 uid="uid://b8gafnaxglmu7"]
 
 [ext_resource type="Script" path="res://gameplay/ground/Ground.gd" id="1_s6drp"]
-[ext_resource type="Texture2D" uid="uid://dmelj2qgr8w7k" path="res://icon.svg" id="2_ev1g1"]
+[ext_resource type="Texture2D" uid="uid://doh57od1s6yi" path="res://spritesheet.png" id="2_t14k8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnuv8"]
-size = Vector2(312.5, 10)
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_76r1y"]
 
-[node name="Ground" type="StaticBody2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nupe8"]
+atlas = ExtResource("2_t14k8")
+region = Rect2(0, 0, 80, 16)
+
+[node name="Ground" type="Node2D"]
 script = ExtResource("1_s6drp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_xnuv8")
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_76r1y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0.499996, 1.78814e-07)
-scale = Vector2(2.44531, 0.09375)
-texture = ExtResource("2_ev1g1")
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(0, 6)
+texture = SubResource("AtlasTexture_nupe8")
