@@ -16,4 +16,4 @@ func _ready() -> void:
 func _on_water_entered(water:Area2D) -> void:
 	if current_water < required_water_to_tree:
 		current_water = current_water + 1
-	
+		water.queue_free()

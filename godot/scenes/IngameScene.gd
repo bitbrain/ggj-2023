@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var fade_overlay := %FadeOverlay
 @onready var pause_overlay := %PauseOverlay
+@onready var game_over_overlay := %GameOverOverlay
 @onready var seed_controller := %SeedController
 @onready var seed := %Seed
 @onready var camera := %Camera2D
@@ -17,8 +18,8 @@ func _ready() -> void:
 	
 	# connect signals
 	seed_controller.shoot.connect(seed.apply_impulse)
-	seed.seed_dead.connect(func(): print("SEED DEAD!"))
-	seed.seed_ready_to_tree.connect(func(): print("SEED READY TO TREE!"))
+	seed.seed_dead.connect(_game_over)
+	seed.seed_ready_to_tree.connect(_grow_tree)
 
 func _input(event) -> void:
 	if event.is_action_pressed("pause") and not pause_overlay.visible:
@@ -29,3 +30,10 @@ func _input(event) -> void:
 		
 func _save_game() -> void:
 	SaveGame.save_game(get_tree())
+	
+func _grow_tree() -> void:
+	print("GROW TREE NOW!")
+	
+func _game_over() -> void:
+	game_over_overlay.visible = true
+	get_tree().paused = true

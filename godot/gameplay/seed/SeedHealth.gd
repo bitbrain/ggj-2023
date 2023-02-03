@@ -16,3 +16,4 @@ func _ready() -> void:
 func _on_hazard_entered(hazard:Area2D) -> void:
 	if current_health > 0:
 		current_health = current_health - 1
+		hazard.queue_free()

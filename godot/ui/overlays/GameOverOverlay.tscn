@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxiju2x2w34uw"]
+
+[ext_resource type="Script" path="res://ui/overlays/GameOverOverlay.gd" id="1_noi6m"]
+
+[node name="GameOverOverlay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_noi6m")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Game Over!"
