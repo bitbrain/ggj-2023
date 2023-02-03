@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqjvsgqgj2hna"]
+
+[ext_resource type="Script" path="res://gameplay/seed/SeedGrowth.gd" id="1_3nraa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yc14a"]
+radius = 3.0
+
+[node name="SeedGrowth" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_3nraa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yc14a")

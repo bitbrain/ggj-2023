@@ -16,7 +16,9 @@ func _ready() -> void:
 	pause_overlay.game_exited.connect(_save_game)
 	
 	# connect signals
-	seed_controller.shoot.connect(seed.shoot_me)
+	seed_controller.shoot.connect(seed.apply_impulse)
+	seed.seed_dead.connect(func(): print("SEED DEAD!"))
+	seed.seed_ready_to_tree.connect(func(): print("SEED READY TO TREE!"))
 
 func _input(event) -> void:
 	if event.is_action_pressed("pause") and not pause_overlay.visible:

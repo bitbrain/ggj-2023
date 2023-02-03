@@ -103,6 +103,8 @@ locale/translations=PackedStringArray("res://i18n/translation.de.translation", "
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Ground"
+2d_physics/layer_3="Water"
+2d_physics/layer_4="Hazard"
 
 [rendering]
 

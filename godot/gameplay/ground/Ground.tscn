@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8gafnaxglmu7"]
+[gd_scene load_steps=6 format=3 uid="uid://b8gafnaxglmu7"]
 
 [ext_resource type="Script" path="res://gameplay/ground/Ground.gd" id="1_s6drp"]
 [ext_resource type="Texture2D" uid="uid://doh57od1s6yi" path="res://spritesheet.png" id="2_t14k8"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2aqpx"]
+rough = true
+bounce = 0.44
+absorbent = true
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_76r1y"]
 
@@ -14,6 +19,7 @@ script = ExtResource("1_s6drp")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 3
+physics_material_override = SubResource("PhysicsMaterial_2aqpx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_76r1y")
