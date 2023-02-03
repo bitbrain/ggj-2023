@@ -1,0 +1,7 @@
+
+# Godot-specific ignores
+.import/
+godot/.godot/
+# Mono-specific ignores
+.mono/
+data_*/
