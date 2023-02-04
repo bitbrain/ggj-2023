@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://doh57od1s6yi" path="res://spritesheet.png" id="1_paknc"]
 [ext_resource type="PackedScene" uid="uid://b3gq74obskjrs" path="res://cleaning/CleaningCandidate.tscn" id="2_if7xa"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_j54q7"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xmyg8"]
 radius = 3.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2554d"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cg105"]
 atlas = ExtResource("1_paknc")
 region = Rect2(16, 64, 16, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_cng32"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hn0ot"]
 
 [node name="WaterDrop" type="RigidBody2D"]
 collision_mask = 2
@@ -19,19 +19,19 @@ mass = 0.05
 script = ExtResource("1_31pnw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_j54q7")
+shape = SubResource("CircleShape2D_xmyg8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_2554d")
+texture = SubResource("AtlasTexture_cg105")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_cng32")
+shape = SubResource("CircleShape2D_hn0ot")
 
 [node name="CleaningCandidate" parent="." instance=ExtResource("2_if7xa")]
 
 [node name="ExpiryTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 6.0

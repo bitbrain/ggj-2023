@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://doh57od1s6yi" path="res://spritesheet.png" id="1_xc1h7"]
 [ext_resource type="PackedScene" uid="uid://b3gq74obskjrs" path="res://cleaning/CleaningCandidate.tscn" id="2_yvely"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l5d53"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_d27ft"]
 radius = 2.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7yiyi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tse2y"]
 atlas = ExtResource("1_xc1h7")
 region = Rect2(32, 64, 16, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lvo84"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_chsnd"]
 
 [node name="Hazard" type="RigidBody2D"]
 mass = 0.05
@@ -19,19 +19,19 @@ script = ExtResource("1_7lpwn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
-shape = SubResource("CircleShape2D_l5d53")
+shape = SubResource("CircleShape2D_d27ft")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_7yiyi")
+texture = SubResource("AtlasTexture_tse2y")
 
 [node name="HazardArea" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardArea"]
-shape = SubResource("CircleShape2D_lvo84")
+shape = SubResource("CircleShape2D_chsnd")
 
 [node name="CleaningCandidate" parent="." instance=ExtResource("2_yvely")]
 
 [node name="ExpiryTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 6.0

@@ -4,10 +4,8 @@ const OFFSET = 200
 
 @export var min_wait_time = 2
 @export var max_wait_time = 4
-@export var hazard_chance = 0.1
-@export var camera:Camera2D
+@export var scene_to_spawn:PackedScene
 
-@onready var CloudScene = preload("res://gameplay/cloud/Cloud.tscn")
 @onready var timer = $Timer
 @onready var world_objects = get_tree().get_nodes_in_group("WorldObjects")[0]
 @onready var spawn_points = $SpawnPoints.get_children()
@@ -22,15 +20,10 @@ func _spawn_cloud() -> void:
 	
 	if world_objects != null:
 		var spawn_position = _get_random_spawn_point()
-		var cloud = CloudScene.instantiate()
-		cloud.global_position = spawn_position
-		if randf() <= hazard_chance:
-			cloud.type = Cloud.CloudType.HAZARD
-		world_objects.add_child(cloud)
+		var scene = scene_to_spawn.instantiate()
+		scene.global_position = spawn_position
+		world_objects.add_child(scene)
 
 func _get_random_spawn_point() -> Vector2:
 	var random_point = spawn_points[spawn_points.size() * randf()]
 	return random_point.global_position
-
-func _process(delta: float) -> void:
-	global_position.x = camera.position.x + (float(camera.get_viewport_rect().size.x) / camera.zoom.x) / 2.0 + OFFSET
