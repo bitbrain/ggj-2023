@@ -1,17 +1,57 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccemw0q3ryqvo"]
+[gd_scene load_steps=13 format=3 uid="uid://ccemw0q3ryqvo"]
 
 [ext_resource type="Script" path="res://gameplay/water/WaterDrop.gd" id="1_31pnw"]
-[ext_resource type="Texture2D" uid="uid://doh57od1s6yi" path="res://spritesheet.png" id="1_paknc"]
 [ext_resource type="PackedScene" uid="uid://b3gq74obskjrs" path="res://cleaning/CleaningCandidate.tscn" id="2_if7xa"]
+[ext_resource type="Texture2D" uid="uid://dgqfw7swiqa0g" path="res://gameplay/water/water.png" id="2_u5dce"]
+[ext_resource type="PackedScene" uid="uid://dethyjfdbf8sp" path="res://gameplay/ground/GroundControl.tscn" id="4_fhuji"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xmyg8"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4qigh"]
 radius = 3.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cg105"]
-atlas = ExtResource("1_paknc")
-region = Rect2(16, 64, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1stv"]
+atlas = ExtResource("2_u5dce")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hn0ot"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh3xg"]
+atlas = ExtResource("2_u5dce")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6icy"]
+atlas = ExtResource("2_u5dce")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1arff"]
+atlas = ExtResource("2_u5dce")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reh1i"]
+atlas = ExtResource("2_u5dce")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fhj6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1stv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh3xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i6icy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1arff")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reh1i")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5qf0"]
 
 [node name="WaterDrop" type="RigidBody2D"]
 collision_mask = 2
@@ -19,19 +59,22 @@ mass = 0.05
 script = ExtResource("1_31pnw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xmyg8")
+shape = SubResource("CircleShape2D_4qigh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_cg105")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fhj6s")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_hn0ot")
+shape = SubResource("CircleShape2D_f5qf0")
 
 [node name="CleaningCandidate" parent="." instance=ExtResource("2_if7xa")]
 
 [node name="ExpiryTimer" type="Timer" parent="."]
 wait_time = 6.0
+
+[node name="GroundControl" parent="." instance=ExtResource("4_fhuji")]
+position = Vector2(0, -1)
