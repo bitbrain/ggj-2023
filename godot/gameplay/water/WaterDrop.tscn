@@ -14,6 +14,7 @@ region = Rect2(16, 64, 16, 16)
 
 [node name="WaterDrop" type="RigidBody2D"]
 collision_mask = 2
+mass = 0.05
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j54q7")

@@ -13,6 +13,7 @@ region = Rect2(32, 64, 16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_lvo84"]
 
 [node name="Hazard" type="RigidBody2D"]
+mass = 0.05
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_l5d53")

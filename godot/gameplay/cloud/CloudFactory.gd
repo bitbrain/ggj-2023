@@ -1,7 +1,9 @@
 extends Node2D
 
-@export var min_wait_time = 5
-@export var max_wait_time = 8
+const OFFSET = 200
+
+@export var min_wait_time = 1
+@export var max_wait_time = 3
 @export var camera:Camera2D
 
 @onready var Cloud = preload("res://gameplay/cloud/Cloud.tscn")
@@ -28,4 +30,4 @@ func _get_random_spawn_point() -> Vector2:
 	return random_point.global_position
 
 func _process(delta: float) -> void:
-	global_position.x = camera.position.x + (float(camera.get_viewport_rect().size.x) / camera.zoom.x) / 2.0
+	global_position.x = camera.position.x + (float(camera.get_viewport_rect().size.x) / camera.zoom.x) / 2.0 + OFFSET
