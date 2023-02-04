@@ -2,6 +2,7 @@
 class_name GroundControl extends Area2D
 
 signal on_touch_ground
+signal on_leave_ground
 
 var touching_ground = false
 
@@ -14,3 +15,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_body_exited(body: Node2D) -> void:
 	touching_ground = false
+	on_leave_ground.emit()
