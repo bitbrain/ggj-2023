@@ -12,3 +12,10 @@ script = ExtResource("1_h4ogq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yc14a")
+
+[node name="InstaDeathArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InstaDeathArea"]
+shape = SubResource("CircleShape2D_yc14a")

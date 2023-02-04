@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://r2g8dywa8h24"]
+
+[ext_resource type="Script" path="res://gameplay/cloud/WorldObjectSpawner.gd" id="1_ekj1p"]
+
+[node name="WorldObjectSpawner" type="Node2D"]
+script = ExtResource("1_ekj1p")
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="SpawnPoint1" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(0, -34)
+
+[node name="SpawnPoint2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(0, -24)
+
+[node name="SpawnPoint3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(0, -15)
+
+[node name="SpawnPoint4" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(0, -6)
+
+[node name="SpawnPoint5" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(0, 7)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
