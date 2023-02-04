@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://duvpaai73ivsp"]
+
+[ext_resource type="Script" path="res://cleaning/VaccuumCleaner.gd" id="1_4wjtk"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0chlu"]
+normal = Vector2(1, 0)
+
+[node name="VaccuumCleaner" type="Area2D"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_4wjtk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_0chlu")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3kb1tbi6e63f"]
+[gd_scene load_steps=16 format=3 uid="uid://b3kb1tbi6e63f"]
 
 [ext_resource type="Script" path="res://scenes/IngameScene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="1_y6ebv"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/PauseOverlay.tscn" id="3_8o178"]
 [ext_resource type="PackedScene" uid="uid://d4audav6d3llq" path="res://gameplay/seed/Seed.tscn" id="3_agimx"]
 [ext_resource type="PackedScene" uid="uid://b8gafnaxglmu7" path="res://gameplay/ground/Ground.tscn" id="4_jgxb4"]
+[ext_resource type="Script" path="res://scenes/NeverGoingBackCamera.gd" id="6_sw5ha"]
+[ext_resource type="PackedScene" uid="uid://duvpaai73ivsp" path="res://cleaning/VaccuumCleaner.tscn" id="6_w75nk"]
 [ext_resource type="PackedScene" uid="uid://bxiju2x2w34uw" path="res://ui/overlays/GameOverOverlay.tscn" id="9_48hko"]
 [ext_resource type="AudioStream" uid="uid://c4fvx7dylwbgn" path="res://audio/ambiences/Ambience_Wasteland(loop).ogg" id="11_by6hs"]
 [ext_resource type="Texture2D" uid="uid://bcuwh4wqc7a6l" path="res://environment/foreground3.png" id="12_f0aep"]
@@ -47,8 +49,13 @@ unique_name_in_owner = true
 position = Vector2(0, -1)
 zoom = Vector2(2, 2)
 limit_bottom = 54
+limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
+script = ExtResource("6_sw5ha")
+
+[node name="VaccuumCleaner" parent="Camera2D" instance=ExtResource("6_w75nk")]
+position = Vector2(-177, -11)
 
 [node name="WorldObjects" type="Node2D" parent="."]
 
