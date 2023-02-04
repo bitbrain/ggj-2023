@@ -8,8 +8,8 @@ signal consume_seed(seed:Seed)
 
 func plant_tree_from_seed(seed:Seed) -> void:
 	if seed.is_touching_ground():
-		_plant_tree_at_position(seed.global_position)
 		consume_seed.emit(seed)
+		_plant_tree_at_position(seed.global_position)
 	else:
 		seed.on_touch_ground.connect(_on_touch_ground.bind(seed))
 		
@@ -21,6 +21,7 @@ func _on_touch_ground(seed:Seed) -> void:
 		
 func _plant_tree_at_position(position:Vector2) -> void:
 	var tree = ForestTree.instantiate()
-	tree_container.add_child(tree)
+	tree_container.call_deferred("add_child", tree)
 	tree.global_position = position
-	new_seed_ready.emit(tree.get_seed_spawn_position())
+	tree.ready.connect(func(): new_seed_ready.emit(tree.get_seed_spawn_position()))
+	

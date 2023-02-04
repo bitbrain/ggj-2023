@@ -21,6 +21,7 @@ func _consume_seed(seed:Seed) -> void:
 	input_controller.enabled = false
 
 func _spawn_new_seed(position:Vector2) -> void:
+	seed.visible = false
 	seed.reset()
 	seed.global_position = position
 	seed.visible = true

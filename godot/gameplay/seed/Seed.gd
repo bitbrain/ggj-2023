@@ -9,6 +9,8 @@ signal on_leave_ground
 @onready var growth := $SeedGrowth
 @onready var ground_control := $GroundControl
 
+var reset_force = false
+
 func _ready() -> void:
 	# forward health signals
 	health.seed_dead.connect(func(): seed_dead.emit())
@@ -22,3 +24,11 @@ func is_touching_ground() -> bool:
 func reset() -> void:
 	health.reset()
 	growth.reset()
+	reset_force = true
+	
+func _integrate_forces(state):
+	if reset_force:
+		state.linear_velocity = Vector2.ZERO
+		state.angular_velocity = 0.0
+		reset_force = false
+	

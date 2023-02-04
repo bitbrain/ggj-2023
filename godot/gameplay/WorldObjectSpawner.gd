@@ -5,6 +5,7 @@ const OFFSET = 200
 @export var min_wait_time = 2
 @export var max_wait_time = 4
 @export var scene_to_spawn:PackedScene
+@export var enabled = true
 
 @onready var timer = $Timer
 @onready var world_objects = get_tree().get_nodes_in_group("WorldObjects")[0]
@@ -18,7 +19,7 @@ func _spawn_cloud() -> void:
 	timer.wait_time = randf_range(min_wait_time, max_wait_time)
 	timer.start()
 	
-	if world_objects != null:
+	if world_objects != null and enabled:
 		var spawn_position = _get_random_spawn_point()
 		var scene = scene_to_spawn.instantiate()
 		scene.global_position = spawn_position

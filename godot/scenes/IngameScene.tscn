@@ -88,6 +88,7 @@ scene_to_spawn = ExtResource("8_10rpf")
 [node name="LavaPoolSpawner" parent="Spawners" instance=ExtResource("7_gihbp")]
 position = Vector2(153, 51)
 scene_to_spawn = ExtResource("8_v0lvb")
+enabled = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
