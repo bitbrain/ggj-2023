@@ -34,6 +34,7 @@ window/stretch/aspect="keep_height"
 [gui]
 
 theme/custom="res://ui/theme.tres"
+theme/custom_font="res://fonts/MotorolaScreentype.ttf"
 
 [input]
 
