@@ -29,14 +29,14 @@ script = ExtResource("1_objyc")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 1)
-motion_mirroring = Vector2(384, 0)
+motion_mirroring = Vector2(768, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("2_pc1m8")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.4, 1)
-motion_mirroring = Vector2(384, 0)
+motion_mirroring = Vector2(768, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 texture = ExtResource("3_6da0r")
@@ -112,7 +112,7 @@ scroll_offset = Vector2(108, 0)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxForeground"]
 motion_scale = Vector2(1.2, 1)
-motion_mirroring = Vector2(384, 0)
+motion_mirroring = Vector2(768, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxForeground/ParallaxLayer"]
 texture_repeat = 2
