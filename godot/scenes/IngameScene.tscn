@@ -71,7 +71,7 @@ position = Vector2(149, -67)
 scene_to_spawn = ExtResource("8_10rpf")
 
 [node name="LavaPoolSpawner" parent="Spawners" instance=ExtResource("7_gihbp")]
-position = Vector2(153, 48)
+position = Vector2(153, 51)
 scene_to_spawn = ExtResource("8_v0lvb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
