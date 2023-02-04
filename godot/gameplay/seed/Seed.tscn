@@ -22,8 +22,10 @@ shape = SubResource("CircleShape2D_qp0xj")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2.38419e-07, 2.38419e-07)
 texture = ExtResource("2_pfwt0")
+hframes = 5
 
 [node name="SeedGrowth" parent="." instance=ExtResource("3_j2imb")]
+required_water_to_tree = 6
 
 [node name="SeedHealth" parent="." instance=ExtResource("3_c61l2")]
 
