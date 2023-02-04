@@ -16,3 +16,7 @@ func _ready() -> void:
 
 func is_touching_ground() -> bool:
 	return ground_control.is_touching_ground()
+
+func reset() -> void:
+	health.reset()
+	growth.reset()

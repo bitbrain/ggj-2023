@@ -3,7 +3,7 @@ extends Node2D
 @onready var fade_overlay := %FadeOverlay
 @onready var pause_overlay := %PauseOverlay
 @onready var game_over_overlay := %GameOverOverlay
-@onready var seed_controller := %SeedController
+@onready var seed_controller := %SeedInputController
 @onready var tree_manager := %TreeManager
 @onready var seed := %Seed
 @onready var ground := %Ground

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dduwld105f4t4"]
+
+[ext_resource type="Script" path="res://gameplay/seed/SeedManager.gd" id="1_40tyt"]
+
+[node name="SeedManager" type="Node"]
+script = ExtResource("1_40tyt")
