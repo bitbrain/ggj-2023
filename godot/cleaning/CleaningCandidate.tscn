@@ -4,7 +4,6 @@
 size = Vector2(85, 14)
 
 [node name="CleaningCandidate" type="Area2D"]
-visible = false
 collision_layer = 16
 collision_mask = 0
 

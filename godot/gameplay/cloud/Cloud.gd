@@ -5,9 +5,9 @@ enum CloudType {
 	HAZARD
 }
 
-@export var min_wait_time = 1
-@export var max_wait_time = 2
-@export var move_speed = 10.0
+@export var min_wait_time = 3
+@export var max_wait_time = 4
+@export var move_speed = 15.0
 @export var type:CloudType = CloudType.WATER
 
 @onready var WaterDrop = preload("res://gameplay/water/WaterDrop.tscn")

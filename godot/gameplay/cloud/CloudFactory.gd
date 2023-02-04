@@ -2,8 +2,8 @@ extends Node2D
 
 const OFFSET = 200
 
-@export var min_wait_time = 1
-@export var max_wait_time = 3
+@export var min_wait_time = 5
+@export var max_wait_time = 8
 @export var camera:Camera2D
 
 @onready var Cloud = preload("res://gameplay/cloud/Cloud.tscn")

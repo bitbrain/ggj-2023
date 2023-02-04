@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://cleaning/VaccuumCleaner.gd" id="1_4wjtk"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0chlu"]
-normal = Vector2(1, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3faxk"]
+size = Vector2(238, 461)
 
 [node name="VaccuumCleaner" type="Area2D"]
 collision_layer = 0
@@ -11,4 +11,5 @@ collision_mask = 16
 script = ExtResource("1_4wjtk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("WorldBoundaryShape2D_0chlu")
+position = Vector2(-109, -47.5)
+shape = SubResource("RectangleShape2D_3faxk")
