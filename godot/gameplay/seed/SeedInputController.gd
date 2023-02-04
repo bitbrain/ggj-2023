@@ -3,7 +3,7 @@ class_name SeedInputController extends Area2D
 signal shoot(force:Vector2)
 
 @export var debug := false
-@export var maximum_length := 400.0
+@export var maximum_length := 100.0
 @export var strength := 0.35
 @export var enabled := true
 
@@ -51,7 +51,6 @@ func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseMotion:
 		position_end = event.position
-		#TODO fix clamping of force vector
-		force = -(position_end - position_start)
+		force = -(position_end - position_start).limit_length(maximum_length)
 		queue_redraw()
 

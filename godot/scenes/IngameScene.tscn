@@ -66,6 +66,8 @@ tree_manager = NodePath("../WorldObjects/TreeManager")
 [node name="SeedInputController" parent="." instance=ExtResource("2_cwhpr")]
 unique_name_in_owner = true
 position = Vector2(0, -1)
+maximum_length = 150.0
+strength = 0.6
 
 [node name="LeftWall" type="StaticBody2D" parent="." node_paths=PackedStringArray("camera")]
 position = Vector2(-102, -23)
