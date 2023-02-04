@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://bib7lgk6y8olx"]
+[gd_scene load_steps=26 format=3 uid="uid://bib7lgk6y8olx"]
 
 [ext_resource type="Script" path="res://scenes/IngameScene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="1_y6ebv"]
 [ext_resource type="PackedScene" uid="uid://cne1ht4ljviec" path="res://gameplay/seed/SeedInputController.tscn" id="2_cwhpr"]
+[ext_resource type="PackedScene" uid="uid://dn3icm840l60p" path="res://savegame/GameplayData.tscn" id="2_jg4rk"]
 [ext_resource type="Texture2D" uid="uid://ct3ewobsr23g6" path="res://environment/foreground.png" id="2_pc1m8"]
 [ext_resource type="PackedScene" uid="uid://dduwld105f4t4" path="res://gameplay/seed/SeedManager.tscn" id="2_pqv0f"]
 [ext_resource type="Texture2D" uid="uid://be3jhihgcljk6" path="res://environment/foreground2.png" id="3_6da0r"]
@@ -20,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://bxiju2x2w34uw" path="res://ui/overlays/GameOverOverlay.tscn" id="9_48hko"]
 [ext_resource type="AudioStream" uid="uid://c4fvx7dylwbgn" path="res://audio/ambiences/Ambience_Wasteland(loop).ogg" id="11_by6hs"]
 [ext_resource type="Texture2D" uid="uid://bcuwh4wqc7a6l" path="res://environment/foreground3.png" id="12_f0aep"]
+[ext_resource type="PackedScene" uid="uid://bs1a4kky55va3" path="res://ui/TreesGrownUI.tscn" id="20_e4ew5"]
 
 [sub_resource type="Gradient" id="Gradient_ish3t"]
 interpolation_mode = 1
@@ -33,6 +35,8 @@ normal = Vector2(1, 0)
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_objyc")
+
+[node name="GameplayData" parent="." instance=ExtResource("2_jg4rk")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -1
@@ -107,8 +111,9 @@ position = Vector2(-177, -11)
 
 [node name="WorldObjects" type="Node2D" parent="." groups=["WorldObjects"]]
 
-[node name="TreeManager" parent="WorldObjects" instance=ExtResource("3_8ehx3")]
+[node name="TreeManager" parent="WorldObjects" node_paths=PackedStringArray("gameplay_data") instance=ExtResource("3_8ehx3")]
 unique_name_in_owner = true
+gameplay_data = NodePath("../../GameplayData")
 
 [node name="Seed" parent="WorldObjects" instance=ExtResource("3_agimx")]
 unique_name_in_owner = true
@@ -158,6 +163,16 @@ visible = false
 unique_name_in_owner = true
 process_mode = 2
 visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+offset_left = 16.0
+offset_top = 20.0
+offset_right = 56.0
+offset_bottom = 60.0
+
+[node name="TreesGrownUI" parent="UI/VBoxContainer" node_paths=PackedStringArray("gameplay_data") instance=ExtResource("20_e4ew5")]
+layout_mode = 2
+gameplay_data = NodePath("../../../GameplayData")
 
 [node name="DesertAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_by6hs")

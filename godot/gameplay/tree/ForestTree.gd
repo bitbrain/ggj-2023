@@ -1,4 +1,4 @@
-extends Node2D
+class_name ForestTree extends Node2D
 
 @export var nature_fade_in_time = 1.0
 

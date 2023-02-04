@@ -3,7 +3,9 @@ class_name TreeManager extends Node2D
 signal new_seed_ready(position:Vector2)
 signal consume_seed(seed:Seed)
 
-@onready var ForestTree = preload("res://gameplay/tree/ForestTree.tscn")
+@export var gameplay_data:GameplayData
+
+@onready var ForestTreeScene = preload("res://gameplay/tree/ForestTree.tscn")
 @onready var tree_container = $TreeContainer
 
 func plant_tree_from_seed(seed:Seed) -> void:
@@ -20,8 +22,12 @@ func _on_touch_ground(seed:Seed) -> void:
 	_plant_tree_at_position(seed.global_position)
 		
 func _plant_tree_at_position(position:Vector2) -> void:
-	var tree = ForestTree.instantiate()
+	var tree = ForestTreeScene.instantiate()
 	tree_container.call_deferred("add_child", tree)
 	tree.global_position = position
-	tree.ready.connect(func(): new_seed_ready.emit(tree.get_seed_spawn_position()))
+	tree.ready.connect(_tree_grown_successfully.bind(tree))
+	
+func _tree_grown_successfully(tree:ForestTree) -> void:
+	new_seed_ready.emit(tree.get_seed_spawn_position())
+	gameplay_data.trees_grown = gameplay_data.trees_grown + 1
 	

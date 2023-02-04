@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn3icm840l60p"]
+
+[ext_resource type="Script" path="res://savegame/GameplayData.gd" id="1_nmq7d"]
+
+[node name="GameplayData" type="Node"]
+script = ExtResource("1_nmq7d")
