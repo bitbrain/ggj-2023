@@ -16,7 +16,7 @@ run/main_scene="res://scenes/boot/godot/GodotBootsplashScene.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 
@@ -115,5 +115,5 @@ locale/translations=PackedStringArray("res://i18n/translation.de.translation", "
 
 [rendering]
 
-environment/defaults/default_clear_color=Color(0.741176, 0.415686, 0.384314, 1)
+environment/defaults/default_clear_color=Color(0.239216, 0.160784, 0.211765, 1)
 textures/canvas_textures/default_texture_filter=0

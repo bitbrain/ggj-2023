@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bib7lgk6y8olx"]
+[gd_scene load_steps=24 format=3 uid="uid://bib7lgk6y8olx"]
 
 [ext_resource type="Script" path="res://scenes/IngameScene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="1_y6ebv"]
@@ -21,6 +21,13 @@
 [ext_resource type="AudioStream" uid="uid://c4fvx7dylwbgn" path="res://audio/ambiences/Ambience_Wasteland(loop).ogg" id="11_by6hs"]
 [ext_resource type="Texture2D" uid="uid://bcuwh4wqc7a6l" path="res://environment/foreground3.png" id="12_f0aep"]
 
+[sub_resource type="Gradient" id="Gradient_ish3t"]
+interpolation_mode = 1
+colors = PackedColorArray(0.741176, 0.415686, 0.384314, 1, 0.741176, 0.415686, 0.384314, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4jie2"]
+gradient = SubResource("Gradient_ish3t")
+
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d6jkp"]
 normal = Vector2(1, 0)
 
@@ -28,10 +35,18 @@ normal = Vector2(1, 0)
 script = ExtResource("1_objyc")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.2, 1)
 motion_mirroring = Vector2(768, 0)
+
+[node name="SkyColor" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -99
+z_as_relative = false
+position = Vector2(8.49999, -108.75)
+scale = Vector2(3.01953, 452.5)
+texture = SubResource("GradientTexture1D_4jie2")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("2_pc1m8")
