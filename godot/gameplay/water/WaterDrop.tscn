@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccemw0q3ryqvo"]
+[gd_scene load_steps=7 format=3 uid="uid://ccemw0q3ryqvo"]
 
+[ext_resource type="Script" path="res://gameplay/water/WaterDrop.gd" id="1_31pnw"]
 [ext_resource type="Texture2D" uid="uid://doh57od1s6yi" path="res://spritesheet.png" id="1_paknc"]
 [ext_resource type="PackedScene" uid="uid://b3gq74obskjrs" path="res://cleaning/CleaningCandidate.tscn" id="2_if7xa"]
 
@@ -15,6 +16,7 @@ region = Rect2(16, 64, 16, 16)
 [node name="WaterDrop" type="RigidBody2D"]
 collision_mask = 2
 mass = 0.05
+script = ExtResource("1_31pnw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_j54q7")
@@ -30,3 +32,6 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_cng32")
 
 [node name="CleaningCandidate" parent="." instance=ExtResource("2_if7xa")]
+
+[node name="ExpiryTimer" type="Timer" parent="."]
+wait_time = 3.0

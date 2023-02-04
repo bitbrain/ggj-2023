@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b3kb1tbi6e63f"]
+[gd_scene load_steps=19 format=3 uid="uid://b3kb1tbi6e63f"]
 
 [ext_resource type="Script" path="res://scenes/IngameScene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="1_y6ebv"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" path="res://scenes/NeverGoingBackCamera.gd" id="6_sw5ha"]
 [ext_resource type="PackedScene" uid="uid://duvpaai73ivsp" path="res://cleaning/VaccuumCleaner.tscn" id="6_w75nk"]
 [ext_resource type="PackedScene" uid="uid://c6nhcvb38hopj" path="res://gameplay/cloud/CloudFactory.tscn" id="7_gihbp"]
-[ext_resource type="PackedScene" uid="uid://dx7dmlqd07i1g" path="res://gameplay/cloud/Cloud.tscn" id="9_0cnpb"]
 [ext_resource type="PackedScene" uid="uid://bxiju2x2w34uw" path="res://ui/overlays/GameOverOverlay.tscn" id="9_48hko"]
 [ext_resource type="AudioStream" uid="uid://c4fvx7dylwbgn" path="res://audio/ambiences/Ambience_Wasteland(loop).ogg" id="11_by6hs"]
 [ext_resource type="Texture2D" uid="uid://bcuwh4wqc7a6l" path="res://environment/foreground3.png" id="12_f0aep"]
@@ -61,7 +60,7 @@ camera = NodePath("../Camera2D")
 shape = SubResource("WorldBoundaryShape2D_d6jkp")
 
 [node name="CloudFactory" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("7_gihbp")]
-position = Vector2(159, -87)
+position = Vector2(162, -49)
 camera = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -78,10 +77,6 @@ script = ExtResource("6_sw5ha")
 position = Vector2(-177, -11)
 
 [node name="WorldObjects" type="Node2D" parent="." groups=["WorldObjects"]]
-
-[node name="Cloud" parent="WorldObjects" instance=ExtResource("9_0cnpb")]
-position = Vector2(59, -74)
-type = 1
 
 [node name="TreeManager" parent="WorldObjects" instance=ExtResource("3_8ehx3")]
 unique_name_in_owner = true

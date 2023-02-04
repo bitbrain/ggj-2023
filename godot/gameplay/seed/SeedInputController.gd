@@ -4,7 +4,7 @@ signal shoot(force:Vector2)
 
 @export var debug := false
 @export var maximum_length := 400.0
-@export var strength := 0.5
+@export var strength := 0.35
 @export var enabled := true
 
 var position_start := Vector2()
