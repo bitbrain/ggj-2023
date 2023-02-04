@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bib7lgk6y8olx"]
+[gd_scene load_steps=27 format=3 uid="uid://bib7lgk6y8olx"]
 
 [ext_resource type="Script" path="res://scenes/IngameScene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="1_y6ebv"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bybh3427jvss8" path="res://gameplay/tree/TreeManager.tscn" id="3_8ehx3"]
 [ext_resource type="PackedScene" uid="uid://jyv4g54adkmo" path="res://ui/overlays/PauseOverlay.tscn" id="3_8o178"]
 [ext_resource type="PackedScene" uid="uid://d4audav6d3llq" path="res://gameplay/seed/Seed.tscn" id="3_agimx"]
+[ext_resource type="Texture2D" uid="uid://br52q4yngjroi" path="res://environment/foreground1.1.png" id="4_0nat2"]
 [ext_resource type="PackedScene" uid="uid://b8gafnaxglmu7" path="res://gameplay/ground/Ground.tscn" id="4_jgxb4"]
 [ext_resource type="Script" path="res://environment/LeftWall.gd" id="6_qqhnc"]
 [ext_resource type="Script" path="res://scenes/NeverGoingBackCamera.gd" id="6_sw5ha"]
@@ -42,7 +43,7 @@ script = ExtResource("1_objyc")
 layer = -1
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 1)
+motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(768, 0)
 
 [node name="SkyColor" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
@@ -55,8 +56,14 @@ texture = SubResource("GradientTexture1D_4jie2")
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("2_pc1m8")
 
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(768, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("4_0nat2")
+
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.4, 1)
 motion_mirroring = Vector2(768, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
@@ -70,7 +77,6 @@ tree_manager = NodePath("../WorldObjects/TreeManager")
 [node name="SeedInputController" parent="." instance=ExtResource("2_cwhpr")]
 unique_name_in_owner = true
 position = Vector2(0, -1)
-maximum_length = 150.0
 strength = 0.6
 
 [node name="LeftWall" type="StaticBody2D" parent="." node_paths=PackedStringArray("camera")]
@@ -100,7 +106,7 @@ enabled = false
 unique_name_in_owner = true
 position = Vector2(0, -1)
 zoom = Vector2(2, 2)
-limit_bottom = 54
+limit_bottom = 68
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
@@ -132,7 +138,7 @@ update_scale = false
 
 [node name="Ground" parent="WorldObjects" node_paths=PackedStringArray("camera") instance=ExtResource("4_jgxb4")]
 unique_name_in_owner = true
-position = Vector2(0, 43)
+position = Vector2(4, 34)
 camera = NodePath("../../Camera2D")
 
 [node name="ParallaxForeground" type="ParallaxBackground" parent="."]
@@ -140,7 +146,7 @@ layer = 1
 scroll_offset = Vector2(108, 0)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxForeground"]
-motion_scale = Vector2(1.2, 1)
+motion_scale = Vector2(1.3, 1)
 motion_mirroring = Vector2(768, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxForeground/ParallaxLayer"]
