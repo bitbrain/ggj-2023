@@ -9,7 +9,7 @@ const NODE_DATA = "node_data"
 
 static func delete_save() -> void:
 	
-	if not ENABLED:
+	if not ENABLED or not has_save():
 		return
 		
 	DirAccess.remove_absolute("user://" + SAVE_GAME_TEMPLATE)

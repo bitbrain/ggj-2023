@@ -74,6 +74,7 @@ position = Vector2(-177, -11)
 
 [node name="Cloud" parent="WorldObjects" instance=ExtResource("9_0cnpb")]
 position = Vector2(59, -74)
+type = 1
 
 [node name="TreeManager" parent="WorldObjects" instance=ExtResource("3_8ehx3")]
 unique_name_in_owner = true
@@ -126,6 +127,7 @@ visible = false
 unique_name_in_owner = true
 process_mode = 2
 visible = false
+nextScene = null
 
 [node name="DesertAmbience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_by6hs")
