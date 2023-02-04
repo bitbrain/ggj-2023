@@ -7,6 +7,7 @@ enum CloudType {
 
 @export var min_wait_time = 1
 @export var max_wait_time = 2
+@export var move_speed = 10.0
 @export var type:CloudType = CloudType.WATER
 
 @onready var WaterDrop = preload("res://gameplay/water/WaterDrop.tscn")
@@ -51,3 +52,6 @@ func drop() -> void:
 func _get_random_spawn_point() -> Vector2:
 	var random_point = spawn_points[spawn_points.size() * randf()]
 	return random_point.global_position
+
+func _process(delta: float) -> void:
+	position.x -= delta * move_speed

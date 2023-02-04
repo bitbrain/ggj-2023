@@ -1,28 +1,31 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccemw0q3ryqvo"]
+[gd_scene load_steps=6 format=3 uid="uid://ccemw0q3ryqvo"]
 
 [ext_resource type="Texture2D" uid="uid://doh57od1s6yi" path="res://spritesheet.png" id="1_paknc"]
+[ext_resource type="PackedScene" uid="uid://b3gq74obskjrs" path="res://cleaning/CleaningCandidate.tscn" id="2_if7xa"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y4o25"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_j54q7"]
 radius = 6.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8py25"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_2554d"]
 atlas = ExtResource("1_paknc")
 region = Rect2(16, 64, 16, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vv6jj"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_cng32"]
 
 [node name="WaterDrop" type="RigidBody2D"]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_y4o25")
+shape = SubResource("CircleShape2D_j54q7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_8py25")
+texture = SubResource("AtlasTexture_2554d")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_vv6jj")
+shape = SubResource("CircleShape2D_cng32")
+
+[node name="CleaningCandidate" parent="." instance=ExtResource("2_if7xa")]

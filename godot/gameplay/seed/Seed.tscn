@@ -14,6 +14,8 @@ atlas = ExtResource("2_3euiq")
 region = Rect2(16, 32, 16, 16)
 
 [node name="Seed" type="RigidBody2D"]
+collision_layer = 33
+collision_mask = 33
 mass = 0.5
 inertia = 403.88
 script = ExtResource("1_ntw8m")
