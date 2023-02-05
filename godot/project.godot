@@ -117,5 +117,6 @@ locale/translations=PackedStringArray("res://i18n/translation.de.translation", "
 
 [rendering]
 
+renderer/rendering_method="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.239216, 0.160784, 0.211765, 1)
 textures/canvas_textures/default_texture_filter=0
