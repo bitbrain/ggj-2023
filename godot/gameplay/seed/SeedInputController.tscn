@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cne1ht4ljviec"]
+[gd_scene load_steps=5 format=3 uid="uid://cne1ht4ljviec"]
 
 [ext_resource type="Script" path="res://gameplay/seed/SeedInputController.gd" id="1_o70ui"]
+[ext_resource type="AudioStream" uid="uid://dhjf2fm744k18" path="res://audio/sfx/seed-pulling.ogg" id="2_b3rew"]
+[ext_resource type="AudioStream" uid="uid://bneauh4cp4tc" path="res://audio/sfx/seed-throwing.ogg" id="3_1n6gn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_72fxs"]
 radius = 34.0
@@ -10,3 +12,9 @@ script = ExtResource("1_o70ui")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_72fxs")
+
+[node name="SeedPull" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_b3rew")
+
+[node name="SeedThrow" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1n6gn")

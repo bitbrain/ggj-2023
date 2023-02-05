@@ -77,7 +77,6 @@ tree_manager = NodePath("../WorldObjects/TreeManager")
 [node name="SeedInputController" parent="." instance=ExtResource("2_cwhpr")]
 unique_name_in_owner = true
 position = Vector2(0, -1)
-strength = 0.6
 
 [node name="LeftWall" type="StaticBody2D" parent="." node_paths=PackedStringArray("camera")]
 position = Vector2(-102, -23)
@@ -98,9 +97,8 @@ position = Vector2(149, -67)
 scene_to_spawn = ExtResource("8_10rpf")
 
 [node name="LavaPoolSpawner" parent="Spawners" instance=ExtResource("7_gihbp")]
-position = Vector2(153, 51)
+position = Vector2(153, 36)
 scene_to_spawn = ExtResource("8_v0lvb")
-enabled = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
