@@ -1,5 +1,6 @@
 class_name ForestTree extends Node2D
 
+signal tree_growing
 signal tree_fully_grown
 
 @export var nature_fade_in_time = 1.0
@@ -23,3 +24,6 @@ func _ready() -> void:
 
 func get_seed_spawn_position() -> Vector2:
 	return seed_spawn_position.global_position
+
+func _on_grow_timer_timeout() -> void:
+	tree_growing.emit()

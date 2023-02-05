@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://otpvrdggf6gf"]
+[gd_scene load_steps=23 format=3 uid="uid://otpvrdggf6gf"]
 
 [ext_resource type="Script" path="res://gameplay/tree/ForestTree.gd" id="1_u6axo"]
 [ext_resource type="Texture2D" uid="uid://b3cfwsxiqjx2t" path="res://gameplay/tree/tree.png" id="2_b22rp"]
 [ext_resource type="AudioStream" uid="uid://d0ofgo6bocb58" path="res://audio/ambiences/Ambience_Forest(loop).ogg" id="3_nc5oq"]
 [ext_resource type="PackedScene" uid="uid://b3gq74obskjrs" path="res://cleaning/CleaningCandidate.tscn" id="4_t25n8"]
+[ext_resource type="AudioStream" uid="uid://c1518xvxb288r" path="res://audio/music/Stinger-TreeGrowing.ogg" id="5_uap70"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xodh"]
 atlas = ExtResource("2_b22rp")
@@ -149,5 +150,18 @@ attenuation = 3.73213
 
 [node name="CollisionShape2D" parent="CleaningCandidate" index="0"]
 position = Vector2(-10.5, 3)
+
+[node name="GrowSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_uap70")
+autoplay = true
+max_distance = 1000.0
+attenuation = 2.54912
+
+[node name="GrowTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]
 
 [editable path="CleaningCandidate"]
