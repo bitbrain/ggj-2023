@@ -2,12 +2,13 @@ extends Node2D
 
 @onready var fade_overlay := %FadeOverlay
 @onready var pause_overlay := %PauseOverlay
-@onready var game_over_overlay := %GameOverOverlay
 @onready var seed_controller := %SeedInputController
 @onready var tree_manager := %TreeManager
 @onready var seed := %Seed
 @onready var ground := %Ground
 @onready var camera := %Camera2D
+
+var game_over = false
 
 func _ready() -> void:
 	camera.make_current()
@@ -36,5 +37,6 @@ func _save_game() -> void:
 	SaveGame.save_game(get_tree())
 	
 func _game_over() -> void:
-	game_over_overlay.visible = true
-	get_tree().paused = true
+	if not game_over:
+		game_over = true
+		get_tree().change_scene_to_file("res://scenes/GameOverScene.tscn")
