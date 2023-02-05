@@ -101,8 +101,7 @@ camera = NodePath("../Camera2D")
 
 [node name="CloudSpawner" parent="Spawners" instance=ExtResource("7_gihbp")]
 position = Vector2(149, -67)
-min_wait_time = 7
-max_wait_time = 10
+max_wait_time = 7
 scene_to_spawn = ExtResource("8_10rpf")
 
 [node name="LavaPoolSpawner" parent="Spawners" instance=ExtResource("7_gihbp")]

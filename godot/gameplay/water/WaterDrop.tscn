@@ -6,53 +6,53 @@
 [ext_resource type="PackedScene" uid="uid://dethyjfdbf8sp" path="res://gameplay/ground/GroundControl.tscn" id="4_fhuji"]
 [ext_resource type="AudioStream" uid="uid://chddb6dqg0lyb" path="res://audio/sfx/waterdrop-hittingGround.ogg" id="5_wptrm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g5gx3"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_xqyvo"]
 radius = 3.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s1iwg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aslny"]
 atlas = ExtResource("2_u5dce")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vx1gq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3tdo"]
 atlas = ExtResource("2_u5dce")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mn6yv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wegfy"]
 atlas = ExtResource("2_u5dce")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_65lj7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wls0e"]
 atlas = ExtResource("2_u5dce")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kxfrv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fonx2"]
 atlas = ExtResource("2_u5dce")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e5n54"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_krojh"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s1iwg")
+"texture": SubResource("AtlasTexture_aslny")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vx1gq")
+"texture": SubResource("AtlasTexture_w3tdo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mn6yv")
+"texture": SubResource("AtlasTexture_wegfy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_65lj7")
+"texture": SubResource("AtlasTexture_wls0e")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kxfrv")
+"texture": SubResource("AtlasTexture_fonx2")
 }],
 "loop": false,
 "name": &"default",
 "speed": 15.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_17dro"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5tdr"]
 
 [node name="WaterDrop" type="RigidBody2D"]
 collision_mask = 2
@@ -60,17 +60,17 @@ mass = 0.05
 script = ExtResource("1_31pnw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_g5gx3")
+shape = SubResource("CircleShape2D_xqyvo")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_e5n54")
+sprite_frames = SubResource("SpriteFrames_krojh")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_17dro")
+shape = SubResource("CircleShape2D_a5tdr")
 
 [node name="CleaningCandidate" parent="." instance=ExtResource("2_if7xa")]
 

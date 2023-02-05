@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var expires = false
+@export var expires = true
 
 @onready var area = $Area2D
 @onready var ground_control:GroundControl = $GroundControl

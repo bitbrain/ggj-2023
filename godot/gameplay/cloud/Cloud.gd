@@ -5,8 +5,8 @@ enum CloudType {
 	#HAZARD
 }
 
-@export var min_wait_time = 4
-@export var max_wait_time = 7
+@export var min_wait_time = 3
+@export var max_wait_time = 6
 @export var move_speed = 20.0
 @export var type:CloudType = CloudType.WATER
 
