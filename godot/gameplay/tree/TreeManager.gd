@@ -1,5 +1,6 @@
 class_name TreeManager extends Node2D
 
+signal tree_growing
 signal new_seed_ready(position:Vector2)
 signal consume_seed(seed:Seed)
 
@@ -25,6 +26,7 @@ func _plant_tree_at_position(position:Vector2) -> void:
 	var tree = ForestTreeScene.instantiate()
 	tree_container.call_deferred("add_child", tree)
 	tree.global_position = position
+	tree.tree_growing.connect(func():tree_growing.emit())
 	tree.tree_fully_grown.connect(_tree_grown_successfully.bind(tree))
 	
 func _tree_grown_successfully(tree:ForestTree) -> void:

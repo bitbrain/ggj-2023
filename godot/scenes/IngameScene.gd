@@ -23,6 +23,9 @@ func _ready() -> void:
 	seed.seed_dead.connect(_game_over)
 	seed.seed_ready_to_tree.connect(tree_manager.plant_tree_from_seed)
 
+	# screenshake!
+	tree_manager.tree_growing.connect(func(): camera.shake(50, 3.5))
+	
 	MusicManager.play([])
 	
 func _input(event) -> void:
@@ -38,3 +41,7 @@ func _save_game() -> void:
 func _game_over() -> void:
 	game_over_overlay.visible = true
 	get_tree().paused = true
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("move_up"):
+		camera.shake(150.0, 3.0)
