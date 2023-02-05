@@ -1,8 +1,8 @@
 class_name Cloud extends Node2D
 
 enum CloudType {
-	WATER,
-	HAZARD
+	WATER
+	#HAZARD
 }
 
 @export var min_wait_time = 3
@@ -16,6 +16,7 @@ enum CloudType {
 @onready var spawn_points = $SpawnPoints.get_children()
 @onready var sprite = $Sprite2D
 @onready var timer = $Timer
+@onready var spawn_drop_sound: AudioStreamPlayer2D = $SpawnDropSound
 
 
 func _ready() -> void:
@@ -23,9 +24,8 @@ func _ready() -> void:
 	
 	timer.timeout.connect(_spawn_drop)
 	
-	#FIXME dirty hack to make hazard cloud
-	if type == CloudType.HAZARD:
-		sprite.frame = 8
+	#if type == CloudType.HAZARD:
+	#	sprite.frame = 8
 		
 func _spawn_drop() -> void:
 	timer.wait_time = randf_range(min_wait_time, max_wait_time)
@@ -43,11 +43,13 @@ func drop() -> void:
 		var water = WaterDrop.instantiate()
 		water.global_position  = spawn_position
 		world_objects.add_child(water)
+		spawn_drop_sound.play()
 		
-	if type == CloudType.HAZARD:
-		var hazard = HazardDrop.instantiate()
-		hazard.global_position  = spawn_position
-		world_objects.add_child(hazard)
+	# UNSUPPORTED FOR NOW
+	#if type == CloudType.HAZARD:
+	#	var hazard = HazardDrop.instantiate()
+	#	hazard.global_position  = spawn_position
+	#	world_objects.add_child(hazard)
 		
 func _get_random_spawn_point() -> Vector2:
 	var random_point = spawn_points[spawn_points.size() * randf()]

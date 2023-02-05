@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4audav6d3llq"]
+[gd_scene load_steps=9 format=3 uid="uid://d4audav6d3llq"]
 
 [ext_resource type="Script" path="res://gameplay/seed/Seed.gd" id="1_ntw8m"]
 [ext_resource type="Texture2D" uid="uid://2mdpqmrhi4lc" path="res://gameplay/seed/seed.png" id="2_pfwt0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dqjvsgqgj2hna" path="res://gameplay/seed/SeedGrowth.tscn" id="3_j2imb"]
 [ext_resource type="PackedScene" uid="uid://dethyjfdbf8sp" path="res://gameplay/ground/GroundControl.tscn" id="5_k3ajv"]
 [ext_resource type="AudioStream" uid="uid://dsymkuavudu0f" path="res://audio/sfx/seed-hittingGround.ogg" id="6_66egn"]
+[ext_resource type="AudioStream" uid="uid://r4tr15elsxs1" path="res://audio/sfx/seed-hittingLava.ogg" id="7_e8m0b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qp0xj"]
 radius = 4.0
@@ -37,3 +38,10 @@ stream = ExtResource("6_66egn")
 volume_db = 10.0
 max_distance = 500.0
 attenuation = 2.07053
+
+[node name="SeedDead" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("7_e8m0b")
+volume_db = -5.0
+max_distance = 500.0
+attenuation = 4.43828

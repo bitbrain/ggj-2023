@@ -10,12 +10,14 @@ signal on_leave_ground
 @onready var ground_control := $GroundControl
 @onready var sprite := $Sprite2D
 @onready var seed_land_sound := $SeedLandSound
+@onready var seed_dead_audio: AudioStreamPlayer2D = $SeedDead
 
 var reset_force = false
 
 func _ready() -> void:
 	# forward health signals
 	health.seed_dead.connect(func(): seed_dead.emit())
+	health.seed_dead.connect(func(): seed_dead_audio.play())
 	growth.seed_ready_to_tree.connect(func(): seed_ready_to_tree.emit(self))
 	growth.water_added.connect(func(water_added): sprite.frame = min(water_added - 1, 4))
 	ground_control.on_touch_ground.connect(func(): on_touch_ground.emit())
