@@ -1,20 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://otpvrdggf6gf"]
+[gd_scene load_steps=5 format=3 uid="uid://otpvrdggf6gf"]
 
-[ext_resource type="Texture2D" uid="uid://doh57od1s6yi" path="res://spritesheet.png" id="1_enmh5"]
 [ext_resource type="Script" path="res://gameplay/tree/ForestTree.gd" id="1_u6axo"]
+[ext_resource type="Texture2D" uid="uid://b3cfwsxiqjx2t" path="res://gameplay/tree/tree.png" id="2_b22rp"]
 [ext_resource type="AudioStream" uid="uid://d0ofgo6bocb58" path="res://audio/ambiences/Ambience_Forest(loop).ogg" id="3_nc5oq"]
 [ext_resource type="PackedScene" uid="uid://b3gq74obskjrs" path="res://cleaning/CleaningCandidate.tscn" id="4_t25n8"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bsnhx"]
-atlas = ExtResource("1_enmh5")
-region = Rect2(160, 64, 32, 48)
 
 [node name="ForestTree" type="Node2D"]
 script = ExtResource("1_u6axo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -23)
-texture = SubResource("AtlasTexture_bsnhx")
+position = Vector2(-9, -113)
+texture = ExtResource("2_b22rp")
 
 [node name="SeedSpawnPosition" type="Marker2D" parent="."]
 position = Vector2(6, -34)
@@ -23,12 +19,12 @@ position = Vector2(6, -34)
 stream = ExtResource("3_nc5oq")
 volume_db = -80.0
 autoplay = true
-max_distance = 500.0
-attenuation = 6.27667
+max_distance = 1000.0
+attenuation = 3.73213
 
 [node name="CleaningCandidate" parent="." instance=ExtResource("4_t25n8")]
 
 [node name="CollisionShape2D" parent="CleaningCandidate" index="0"]
-position = Vector2(0, 3)
+position = Vector2(-10.5, 3)
 
 [editable path="CleaningCandidate"]

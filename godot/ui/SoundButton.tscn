@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddftv0fnkodh6"]
+
+[ext_resource type="Script" path="res://ui/SoundButton.gd" id="1_od5tg"]
+[ext_resource type="AudioStream" uid="uid://cng4spysp3in" path="res://audio/sfx/UI-buttonHover.ogg" id="2_lldk0"]
+[ext_resource type="AudioStream" uid="uid://bdnq4k41ghw37" path="res://audio/sfx/UI-buttonClick.ogg" id="3_3gx36"]
+
+[node name="SoundButton" type="Button"]
+text = "Hello World"
+script = ExtResource("1_od5tg")
+
+[node name="HoverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lldk0")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3gx36")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

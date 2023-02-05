@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bib7lgk6y8olx"]
+[gd_scene load_steps=30 format=3 uid="uid://bib7lgk6y8olx"]
 
 [ext_resource type="Script" path="res://scenes/IngameScene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="1_y6ebv"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bxiju2x2w34uw" path="res://ui/overlays/GameOverOverlay.tscn" id="9_48hko"]
 [ext_resource type="AudioStream" uid="uid://c4fvx7dylwbgn" path="res://audio/ambiences/Ambience_Wasteland(loop).ogg" id="11_by6hs"]
 [ext_resource type="Texture2D" uid="uid://bcuwh4wqc7a6l" path="res://environment/foreground3.png" id="12_f0aep"]
+[ext_resource type="PackedScene" uid="uid://otpvrdggf6gf" path="res://gameplay/tree/ForestTree.tscn" id="16_3ay3h"]
 [ext_resource type="PackedScene" uid="uid://bs1a4kky55va3" path="res://ui/TreesGrownUI.tscn" id="20_e4ew5"]
 [ext_resource type="PackedScene" uid="uid://0d7wg5n6c7i0" path="res://ui/DistanceTravelledUI.tscn" id="23_qp2gp"]
 
@@ -106,6 +107,7 @@ scene_to_spawn = ExtResource("8_10rpf")
 [node name="LavaPoolSpawner" parent="Spawners" instance=ExtResource("7_gihbp")]
 position = Vector2(153, 36)
 scene_to_spawn = ExtResource("8_v0lvb")
+enabled = false
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("gameplay_data")]
 unique_name_in_owner = true
@@ -122,6 +124,9 @@ gameplay_data = NodePath("../GameplayData")
 position = Vector2(-177, -11)
 
 [node name="WorldObjects" type="Node2D" parent="." groups=["WorldObjects"]]
+
+[node name="ForestTree" parent="WorldObjects" instance=ExtResource("16_3ay3h")]
+position = Vector2(258, 46)
 
 [node name="TreeManager" parent="WorldObjects" node_paths=PackedStringArray("gameplay_data") instance=ExtResource("3_8ehx3")]
 unique_name_in_owner = true
