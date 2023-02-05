@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://d0ofgo6bocb58" path="res://audio/ambiences/Ambience_Forest(loop).ogg" id="3_nc5oq"]
 [ext_resource type="PackedScene" uid="uid://b3gq74obskjrs" path="res://cleaning/CleaningCandidate.tscn" id="4_t25n8"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jfrip"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsnhx"]
 atlas = ExtResource("1_enmh5")
 region = Rect2(160, 64, 32, 48)
 
@@ -14,7 +14,7 @@ script = ExtResource("1_u6axo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -23)
-texture = SubResource("AtlasTexture_jfrip")
+texture = SubResource("AtlasTexture_bsnhx")
 
 [node name="SeedSpawnPosition" type="Marker2D" parent="."]
 position = Vector2(6, -34)

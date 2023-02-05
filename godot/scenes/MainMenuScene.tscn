@@ -73,6 +73,8 @@ horizontal_alignment = 1
 [node name="FadeOverlay" parent="UI" instance=ExtResource("3_kf1us")]
 unique_name_in_owner = true
 visible = false
+fade_in_duration = 2.5
+fade_out_duration = 2.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 autoplay = true

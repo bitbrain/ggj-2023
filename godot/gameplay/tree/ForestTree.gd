@@ -6,6 +6,10 @@ class_name ForestTree extends Node2D
 @onready var nature_audio = $AudioStreamPlayer2D
 
 func _ready() -> void:
+	randomize()
+	
+	nature_audio.seek(randf() * nature_audio.stream.get_length())
+		
 	var tween = create_tween()\
 	.set_ease(Tween.EASE_IN)\
 	.set_trans(Tween.TRANS_CUBIC)

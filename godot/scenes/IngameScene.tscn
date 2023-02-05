@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bib7lgk6y8olx"]
+[gd_scene load_steps=29 format=3 uid="uid://bib7lgk6y8olx"]
 
 [ext_resource type="Script" path="res://scenes/IngameScene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="1_y6ebv"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://camera/ClipToCamera.gd" id="7_brjbk"]
 [ext_resource type="PackedScene" uid="uid://r2g8dywa8h24" path="res://gameplay/WorldObjectSpawner.tscn" id="7_gihbp"]
 [ext_resource type="PackedScene" uid="uid://dx7dmlqd07i1g" path="res://gameplay/cloud/Cloud.tscn" id="8_10rpf"]
+[ext_resource type="PackedScene" uid="uid://c5ijnpffu8tyd" path="res://gameplay/DifficultyManager.tscn" id="8_263t3"]
 [ext_resource type="PackedScene" uid="uid://btweodverud0h" path="res://gameplay/hazard/LavaPool.tscn" id="8_v0lvb"]
 [ext_resource type="PackedScene" uid="uid://bxiju2x2w34uw" path="res://ui/overlays/GameOverOverlay.tscn" id="9_48hko"]
 [ext_resource type="AudioStream" uid="uid://c4fvx7dylwbgn" path="res://audio/ambiences/Ambience_Wasteland(loop).ogg" id="11_by6hs"]
@@ -78,6 +79,11 @@ texture = ExtResource("3_6da0r")
 input_controller = NodePath("../SeedInputController")
 seed = NodePath("../WorldObjects/Seed")
 tree_manager = NodePath("../WorldObjects/TreeManager")
+
+[node name="DifficultyManager" parent="." node_paths=PackedStringArray("gameplay_data", "lava_spawner", "cloud_spawner") instance=ExtResource("8_263t3")]
+gameplay_data = NodePath("../GameplayData")
+lava_spawner = NodePath("../Spawners/LavaPoolSpawner")
+cloud_spawner = NodePath("../Spawners/CloudSpawner")
 
 [node name="LeftWall" type="StaticBody2D" parent="." node_paths=PackedStringArray("camera")]
 position = Vector2(-102, -23)
