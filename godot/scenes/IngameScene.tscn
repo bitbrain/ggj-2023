@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bib7lgk6y8olx"]
+[gd_scene load_steps=29 format=3 uid="uid://bib7lgk6y8olx"]
 
 [ext_resource type="Script" path="res://scenes/IngameScene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="1_y6ebv"]
@@ -20,19 +20,20 @@
 [ext_resource type="PackedScene" uid="uid://dx7dmlqd07i1g" path="res://gameplay/cloud/Cloud.tscn" id="8_10rpf"]
 [ext_resource type="PackedScene" uid="uid://c5ijnpffu8tyd" path="res://gameplay/DifficultyManager.tscn" id="8_263t3"]
 [ext_resource type="PackedScene" uid="uid://btweodverud0h" path="res://gameplay/hazard/LavaPool.tscn" id="8_v0lvb"]
+[ext_resource type="PackedScene" uid="uid://bxiju2x2w34uw" path="res://ui/overlays/GameOverOverlay.tscn" id="9_48hko"]
 [ext_resource type="AudioStream" uid="uid://c4fvx7dylwbgn" path="res://audio/ambiences/Ambience_Wasteland(loop).ogg" id="11_by6hs"]
 [ext_resource type="Texture2D" uid="uid://bcuwh4wqc7a6l" path="res://environment/foreground3.png" id="12_f0aep"]
 [ext_resource type="PackedScene" uid="uid://bs1a4kky55va3" path="res://ui/TreesGrownUI.tscn" id="20_e4ew5"]
 [ext_resource type="PackedScene" uid="uid://0d7wg5n6c7i0" path="res://ui/DistanceTravelledUI.tscn" id="23_qp2gp"]
 
-[sub_resource type="Gradient" id="Gradient_6du0h"]
+[sub_resource type="Gradient" id="Gradient_ish3t"]
 interpolation_mode = 1
 colors = PackedColorArray(0.741176, 0.415686, 0.384314, 1, 0.741176, 0.415686, 0.384314, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_gcd2i"]
-gradient = SubResource("Gradient_6du0h")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4jie2"]
+gradient = SubResource("Gradient_ish3t")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_omlak"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d6jkp"]
 normal = Vector2(1, 0)
 
 [node name="IngameScene" type="Node2D"]
@@ -56,7 +57,7 @@ z_index = -99
 z_as_relative = false
 position = Vector2(8.49999, -108.75)
 scale = Vector2(3.01953, 452.5)
-texture = SubResource("GradientTexture1D_gcd2i")
+texture = SubResource("GradientTexture1D_4jie2")
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("2_pc1m8")
@@ -92,7 +93,7 @@ script = ExtResource("6_qqhnc")
 camera = NodePath("../Camera2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-shape = SubResource("WorldBoundaryShape2D_omlak")
+shape = SubResource("WorldBoundaryShape2D_d6jkp")
 
 [node name="Spawners" type="Node2D" parent="." node_paths=PackedStringArray("camera")]
 script = ExtResource("7_brjbk")
@@ -166,6 +167,11 @@ process_mode = 1
 visible = false
 
 [node name="PauseOverlay" parent="UI" instance=ExtResource("3_8o178")]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+
+[node name="GameOverOverlay" parent="UI" instance=ExtResource("9_48hko")]
 unique_name_in_owner = true
 process_mode = 2
 visible = false
