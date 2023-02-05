@@ -1,6 +1,6 @@
 extends Node
 
-const VOLUME_REDUCTION = 20.0
+const VOLUME_REDUCTION = 12.0
 
 @onready var layers = [
 	preload("res://audio/music/InGame-Layer1(loop).ogg"),

@@ -23,7 +23,8 @@ func _ready() -> void:
 	seed.seed_dead.connect(_game_over)
 	seed.seed_ready_to_tree.connect(tree_manager.plant_tree_from_seed)
 
-
+	MusicManager.play([])
+	
 func _input(event) -> void:
 	if event.is_action_pressed("pause") and not pause_overlay.visible:
 		get_viewport().set_input_as_handled()

@@ -1,9 +1,9 @@
-extends Node2D
+class_name WorldObjectSpawner extends Node2D
 
 const OFFSET = 200
 
-@export var min_wait_time = 2
-@export var max_wait_time = 4
+@export var min_wait_time = 4
+@export var max_wait_time = 6
 @export var scene_to_spawn:PackedScene
 @export var enabled = true
 
