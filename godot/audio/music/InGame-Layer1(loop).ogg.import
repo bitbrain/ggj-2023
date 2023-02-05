@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/InGame-Layer1(loop).ogg-151e1fb6235f1fe3fec26
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

@@ -22,6 +22,8 @@ func _ready() -> void:
 	seed_controller.shoot.connect(seed.apply_impulse)
 	seed.seed_dead.connect(_game_over)
 	seed.seed_ready_to_tree.connect(tree_manager.plant_tree_from_seed)
+	
+	MusicManager.play([0, 1, 2])
 
 func _input(event) -> void:
 	if event.is_action_pressed("pause") and not pause_overlay.visible:
