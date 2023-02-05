@@ -30,7 +30,7 @@ func _ready() -> void:
 	else:
 		new_game_button.grab_focus()
 		
-	MusicManager.play([0, 1])
+	MusicManager.play([0])
 
 func _on_settings_button_pressed() -> void:
 	new_game = false
