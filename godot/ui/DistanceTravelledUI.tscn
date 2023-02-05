@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://0d7wg5n6c7i0"]
+
+[ext_resource type="Script" path="res://ui/DistanceTravelledUI.gd" id="1_ge68u"]
+
+[node name="DistanceTravelledUI" type="BoxContainer"]
+offset_right = 116.0
+offset_bottom = 21.0
+script = ExtResource("1_ge68u")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "No trees grown yet."

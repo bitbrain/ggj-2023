@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bib7lgk6y8olx"]
+[gd_scene load_steps=28 format=3 uid="uid://bib7lgk6y8olx"]
 
 [ext_resource type="Script" path="res://scenes/IngameScene.gd" id="1_objyc"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/FadeOverlay.tscn" id="1_y6ebv"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://c4fvx7dylwbgn" path="res://audio/ambiences/Ambience_Wasteland(loop).ogg" id="11_by6hs"]
 [ext_resource type="Texture2D" uid="uid://bcuwh4wqc7a6l" path="res://environment/foreground3.png" id="12_f0aep"]
 [ext_resource type="PackedScene" uid="uid://bs1a4kky55va3" path="res://ui/TreesGrownUI.tscn" id="20_e4ew5"]
+[ext_resource type="PackedScene" uid="uid://0d7wg5n6c7i0" path="res://ui/DistanceTravelledUI.tscn" id="23_qp2gp"]
 
 [sub_resource type="Gradient" id="Gradient_ish3t"]
 interpolation_mode = 1
@@ -36,6 +37,10 @@ normal = Vector2(1, 0)
 
 [node name="IngameScene" type="Node2D"]
 script = ExtResource("1_objyc")
+
+[node name="SeedInputController" parent="." instance=ExtResource("2_cwhpr")]
+unique_name_in_owner = true
+position = Vector2(0, -1)
 
 [node name="GameplayData" parent="." instance=ExtResource("2_jg4rk")]
 
@@ -74,10 +79,6 @@ input_controller = NodePath("../SeedInputController")
 seed = NodePath("../WorldObjects/Seed")
 tree_manager = NodePath("../WorldObjects/TreeManager")
 
-[node name="SeedInputController" parent="." instance=ExtResource("2_cwhpr")]
-unique_name_in_owner = true
-position = Vector2(0, -1)
-
 [node name="LeftWall" type="StaticBody2D" parent="." node_paths=PackedStringArray("camera")]
 position = Vector2(-102, -23)
 collision_layer = 32
@@ -100,7 +101,7 @@ scene_to_spawn = ExtResource("8_10rpf")
 position = Vector2(153, 36)
 scene_to_spawn = ExtResource("8_v0lvb")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("gameplay_data")]
 unique_name_in_owner = true
 position = Vector2(0, -1)
 zoom = Vector2(2, 2)
@@ -109,6 +110,7 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 script = ExtResource("6_sw5ha")
+gameplay_data = NodePath("../GameplayData")
 
 [node name="VaccuumCleaner" parent="Camera2D" instance=ExtResource("6_w75nk")]
 position = Vector2(-177, -11)
@@ -175,6 +177,10 @@ offset_right = 56.0
 offset_bottom = 60.0
 
 [node name="TreesGrownUI" parent="UI/VBoxContainer" node_paths=PackedStringArray("gameplay_data") instance=ExtResource("20_e4ew5")]
+layout_mode = 2
+gameplay_data = NodePath("../../../GameplayData")
+
+[node name="DistanceTravelledUI" parent="UI/VBoxContainer" node_paths=PackedStringArray("gameplay_data") instance=ExtResource("23_qp2gp")]
 layout_mode = 2
 gameplay_data = NodePath("../../../GameplayData")
 
