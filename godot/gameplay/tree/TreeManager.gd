@@ -25,7 +25,7 @@ func _plant_tree_at_position(position:Vector2) -> void:
 	var tree = ForestTreeScene.instantiate()
 	tree_container.call_deferred("add_child", tree)
 	tree.global_position = position
-	tree.ready.connect(_tree_grown_successfully.bind(tree))
+	tree.tree_fully_grown.connect(_tree_grown_successfully.bind(tree))
 	
 func _tree_grown_successfully(tree:ForestTree) -> void:
 	new_seed_ready.emit(tree.get_seed_spawn_position())

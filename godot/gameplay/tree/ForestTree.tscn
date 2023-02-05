@@ -1,19 +1,142 @@
-[gd_scene load_steps=5 format=3 uid="uid://otpvrdggf6gf"]
+[gd_scene load_steps=22 format=3 uid="uid://otpvrdggf6gf"]
 
 [ext_resource type="Script" path="res://gameplay/tree/ForestTree.gd" id="1_u6axo"]
 [ext_resource type="Texture2D" uid="uid://b3cfwsxiqjx2t" path="res://gameplay/tree/tree.png" id="2_b22rp"]
 [ext_resource type="AudioStream" uid="uid://d0ofgo6bocb58" path="res://audio/ambiences/Ambience_Forest(loop).ogg" id="3_nc5oq"]
 [ext_resource type="PackedScene" uid="uid://b3gq74obskjrs" path="res://cleaning/CleaningCandidate.tscn" id="4_t25n8"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xodh"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(0, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gosu"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(319, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc11j"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(638, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v88nj"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(957, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ew7o"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(1276, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awwg6"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(1595, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73xk6"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(1914, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4op83"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(2233, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gf8k"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(2552, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eemkj"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(2871, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gr7ah"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(3190, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sheqq"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(3509, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7cy5"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(3828, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6rx4"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(4147, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et585"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(4466, 0, 319, 280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tm0xa"]
+atlas = ExtResource("2_b22rp")
+region = Rect2(4785, 0, 319, 280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8ii5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xodh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gosu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc11j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v88nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ew7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awwg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73xk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4op83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gf8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eemkj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gr7ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sheqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7cy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6rx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et585")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tm0xa")
+}],
+"loop": false,
+"name": &"default",
+"speed": 7.0
+}]
+
 [node name="ForestTree" type="Node2D"]
 script = ExtResource("1_u6axo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-9, -113)
-texture = ExtResource("2_b22rp")
+sprite_frames = SubResource("SpriteFrames_o8ii5")
+autoplay = "default"
+frame = 15
+frame_progress = 1.0
 
 [node name="SeedSpawnPosition" type="Marker2D" parent="."]
-position = Vector2(6, -34)
+position = Vector2(31, -138)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_nc5oq")
