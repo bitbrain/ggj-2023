@@ -8,11 +8,15 @@ signal tree_fully_grown
 @onready var seed_spawn_position = $SeedSpawnPosition
 @onready var nature_audio = $AudioStreamPlayer2D
 @onready var sprite = $Sprite2D
+@onready var particles = $GPUParticles2D
 
 func _ready() -> void:
 	randomize()
 	
+	particles.emitting = false
+	
 	sprite.animation_finished.connect(func():tree_fully_grown.emit())
+	sprite.animation_finished.connect(func():particles.emitting = true)
 	
 	nature_audio.seek(randf() * nature_audio.stream.get_length())
 		

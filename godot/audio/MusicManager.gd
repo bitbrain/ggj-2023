@@ -20,8 +20,6 @@ func _ready() -> void:
 		audio_stream_player.process_mode = Node.PROCESS_MODE_ALWAYS
 		audio_stream_players.append(audio_stream_player)
 		add_child(audio_stream_player)
-		
-	play([0])
 
 func play(layers:Array[int]) -> void:
 	

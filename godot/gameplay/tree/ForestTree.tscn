@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://otpvrdggf6gf"]
+[gd_scene load_steps=25 format=3 uid="uid://otpvrdggf6gf"]
 
 [ext_resource type="Script" path="res://gameplay/tree/ForestTree.gd" id="1_u6axo"]
 [ext_resource type="Texture2D" uid="uid://b3cfwsxiqjx2t" path="res://gameplay/tree/tree.png" id="2_b22rp"]
 [ext_resource type="AudioStream" uid="uid://d0ofgo6bocb58" path="res://audio/ambiences/Ambience_Forest(loop).ogg" id="3_nc5oq"]
 [ext_resource type="PackedScene" uid="uid://b3gq74obskjrs" path="res://cleaning/CleaningCandidate.tscn" id="4_t25n8"]
 [ext_resource type="AudioStream" uid="uid://c1518xvxb288r" path="res://audio/music/Stinger-TreeGrowing.ogg" id="5_uap70"]
+[ext_resource type="Texture2D" uid="uid://bo2sddjxbegf1" path="res://gameplay/tree/leaf.png" id="6_hvwpa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7xodh"]
 atlas = ExtResource("2_b22rp")
@@ -126,6 +127,17 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lm7ew"]
+emission_shape = 3
+emission_box_extents = Vector3(130, 50, 1)
+particle_flag_disable_z = true
+gravity = Vector3(0, 50, 0)
+angular_velocity_min = -111.29
+angular_velocity_max = 77.56
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_max = 100.0
+
 [node name="ForestTree" type="Node2D"]
 script = ExtResource("1_u6axo")
 
@@ -161,6 +173,13 @@ attenuation = 2.54912
 wait_time = 1.5
 one_shot = true
 autostart = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(-1, -161)
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_lm7ew")
+texture = ExtResource("6_hvwpa")
+lifetime = 2.5
 
 [connection signal="timeout" from="GrowTimer" to="." method="_on_grow_timer_timeout"]
 

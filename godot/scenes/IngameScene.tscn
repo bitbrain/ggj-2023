@@ -101,12 +101,15 @@ camera = NodePath("../Camera2D")
 
 [node name="CloudSpawner" parent="Spawners" instance=ExtResource("7_gihbp")]
 position = Vector2(149, -67)
+min_wait_time = 7
+max_wait_time = 10
 scene_to_spawn = ExtResource("8_10rpf")
 
 [node name="LavaPoolSpawner" parent="Spawners" instance=ExtResource("7_gihbp")]
 position = Vector2(153, 36)
+min_wait_time = 7
+max_wait_time = 10
 scene_to_spawn = ExtResource("8_v0lvb")
-enabled = false
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("gameplay_data")]
 unique_name_in_owner = true
