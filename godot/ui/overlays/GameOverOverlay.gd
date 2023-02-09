@@ -7,4 +7,5 @@ func _input(event: InputEvent) -> void:
 		changed = true
 		SaveGame.delete_save()
 		get_tree().paused = false
+		MusicManager.play([])
 		get_tree().change_scene_to_file("res://scenes/MainMenuScene.tscn")
