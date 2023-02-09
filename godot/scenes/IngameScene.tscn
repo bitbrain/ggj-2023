@@ -100,12 +100,12 @@ script = ExtResource("7_brjbk")
 camera = NodePath("../Camera2D")
 
 [node name="CloudSpawner" parent="Spawners" instance=ExtResource("7_gihbp")]
-position = Vector2(149, -67)
+position = Vector2(150, -79)
 max_wait_time = 7
 scene_to_spawn = ExtResource("8_10rpf")
 
 [node name="LavaPoolSpawner" parent="Spawners" instance=ExtResource("7_gihbp")]
-position = Vector2(153, 36)
+position = Vector2(153, 40)
 min_wait_time = 7
 max_wait_time = 10
 scene_to_spawn = ExtResource("8_v0lvb")
@@ -194,6 +194,8 @@ layout_mode = 2
 gameplay_data = NodePath("../../../GameplayData")
 
 [node name="DesertAmbience" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("11_by6hs")
 volume_db = -10.0
 autoplay = true
+bus = &"Sound"

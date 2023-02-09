@@ -157,6 +157,7 @@ volume_db = -80.0
 autoplay = true
 max_distance = 1000.0
 attenuation = 3.73213
+bus = &"Sound"
 
 [node name="CleaningCandidate" parent="." instance=ExtResource("4_t25n8")]
 
@@ -168,6 +169,7 @@ stream = ExtResource("5_uap70")
 autoplay = true
 max_distance = 1000.0
 attenuation = 2.54912
+bus = &"Sound"
 
 [node name="GrowTimer" type="Timer" parent="."]
 wait_time = 1.5

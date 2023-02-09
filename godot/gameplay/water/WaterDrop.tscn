@@ -82,3 +82,4 @@ position = Vector2(0, -1)
 
 [node name="HitGroundSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_wptrm")
+bus = &"Sound"

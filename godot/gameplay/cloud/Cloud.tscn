@@ -40,3 +40,4 @@ autostart = true
 stream = ExtResource("4_enphg")
 max_distance = 500.0
 attenuation = 2.73208
+bus = &"Sound"

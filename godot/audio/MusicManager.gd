@@ -18,6 +18,7 @@ func _ready() -> void:
 		audio_stream_player.stream = layer
 		audio_stream_player.volume_db = -VOLUME_REDUCTION
 		audio_stream_player.process_mode = Node.PROCESS_MODE_ALWAYS
+		audio_stream_player.bus = "Music"
 		audio_stream_players.append(audio_stream_player)
 		add_child(audio_stream_player)
 

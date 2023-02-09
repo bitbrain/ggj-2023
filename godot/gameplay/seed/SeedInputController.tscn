@@ -15,6 +15,8 @@ shape = SubResource("CircleShape2D_72fxs")
 
 [node name="SeedPull" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_b3rew")
+bus = &"Sound"
 
 [node name="SeedThrow" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_1n6gn")
+bus = &"Sound"
