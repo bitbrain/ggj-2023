@@ -28,7 +28,7 @@ jobs:
       - name: Export for Linux
         run: |
           mkdir -v -p build/linux
-          cd $EXPORT_NAME
+          cd godot/
           godot --headless --verbose --export-release "Linux/X11" ../build/linux/$EXPORT_NAME.x86_64
       - uses: actions/upload-artifact@v2
         with:
@@ -44,7 +44,7 @@ jobs:
       - name: Export for Windows
         run: |
           mkdir -v -p build/windows
-          cd $EXPORT_NAME
+          cd godot/
           godot --headless --verbose --export-release "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
       - uses: actions/upload-artifact@v2
         with:
@@ -60,7 +60,7 @@ jobs:
       - name: Export for Mac
         run: |
           mkdir -v -p build/mac
-          cd $EXPORT_NAME
+          cd godot/
           godot --headless --verbose --export-release "Mac OSX" ../build/mac/$EXPORT_NAME.zip
       - uses: actions/upload-artifact@v2
         with:
@@ -76,7 +76,7 @@ jobs:
       - name: Export for Web/HTML5
         run: |
           mkdir -v -p build/web
-          cd $EXPORT_NAME
+          cd godot/
           godot --headless --verbose --export-release "HTML5" ../build/web/index.html
       - uses: actions/upload-artifact@v2
         with:
