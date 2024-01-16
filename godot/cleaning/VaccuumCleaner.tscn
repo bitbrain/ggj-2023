@@ -11,5 +11,5 @@ collision_mask = 16
 script = ExtResource("1_4wjtk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-109, -47.5)
+position = Vector2(-697, 0)
 shape = SubResource("RectangleShape2D_3faxk")
