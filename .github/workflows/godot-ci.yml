@@ -29,13 +29,28 @@ jobs:
         with:
           path: .godot/imported/
           key: import-assets-${{ runner.os }}-${{ github.sha }}
+      - name: install wine
+        id: wine_install
+        run: |
+          sudo apt install wine64
+          echo "WINE_PATH=$(which wine64)" >> $GITHUB_OUTPUT
       - name: Export Game using Godot
+        id: export
         uses: firebelley/godot-export@v5.2.1
         with:
           godot_executable_download_url: "https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}_linux.x86_64.zip"
           godot_export_templates_download_url: "https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}_export_templates.tpz"
           relative_project_path: "./godot"
           archive_output: true
+          cache: true
+          wine_path: ${{ steps.wine_install.outputs.WINE_PATH }}
+      - name: create release
+        uses: ncipollo/release-action@v1.13.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          generateReleaseNotes: true
+          tag: ${{ github.ref_name }}
+          artifacts: ${{ steps.export.outputs.archive_directory }}/*
 
   deploy-to-itchio-linux:
     runs-on: ubuntu-latest
