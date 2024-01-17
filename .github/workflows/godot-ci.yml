@@ -44,22 +44,22 @@ jobs:
       - name: Upload HTML5
         uses: actions/upload-artifact@v4
         with:
-          name: HTML5.zip
+          name: HTML5
           path: /home/runner/.local/share/godot/archives/HTML5.zip
       - name: Upload Linux
         uses: actions/upload-artifact@v4
         with:
-          name: LinuxX11.zip
+          name: LinuxX11
           path: /home/runner/.local/share/godot/archives/LinuxX11.zip
       - name: Upload Windows
         uses: actions/upload-artifact@v4
         with:
-          name: Windows.zip
+          name: Windows
           path: /home/runner/.local/share/godot/archives/Windows.zip
       - name: Upload MacOS
         uses: actions/upload-artifact@v4
         with:
-          name: macOS.zip
+          name: macOS
           path: /home/runner/.local/share/godot/archives/macOS.zip
 
   deploy-to-itchio-linux:
@@ -69,8 +69,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: LinuxX11.zip
-          path: /home/runner/.local/share/godot/archives
+          name: LinuxX11
       - name: Deploy to Itch.io (Windows)
         uses: manleydev/butler-publish-itchio-action@master
         env:
@@ -87,8 +86,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: Windows.zip
-          path: /home/runner/.local/share/godot/archives
+          name: Windows
       - name: Deploy to Itch.io (Windows)
         uses: manleydev/butler-publish-itchio-action@master
         env:
@@ -105,8 +103,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: macOS.zip
-          path: /home/runner/.local/share/godot/archives
+          name: macOS
       - name: Deploy to Itch.io (MacOS)
         uses: manleydev/butler-publish-itchio-action@master
         env:
@@ -123,8 +120,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: HTML5.zip
-          path: /home/runner/.local/share/godot/archives
+          name: HTML5
       - name: Deploy to Itch.io (HTML5)
         uses: manleydev/butler-publish-itchio-action@master
         env:
