@@ -43,13 +43,6 @@ jobs:
           archive_output: true
           cache: true
           wine_path: ${{ steps.wine_install.outputs.WINE_PATH }}
-      - name: create release
-        uses: ncipollo/release-action@v1.13.0
-        with:
-          token: ${{ secrets.GH_SECRET_TOKEN }}
-          generateReleaseNotes: true
-          tag: ${{ github.ref_name }}
-          artifacts: ${{ steps.export.outputs.archive_directory }}/*
 
   deploy-to-itchio-linux:
     runs-on: ubuntu-latest
