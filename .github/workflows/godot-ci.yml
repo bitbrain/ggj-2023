@@ -3,7 +3,6 @@ name: Godot CI/CD Pipeline
 on: [push, pull_request]
 
 env:
-  EXPORT_NAME: the-last-seed
   GODOT_VERSION: "4.2.1"
   GODOT_STATUS: "stable"
 jobs:
@@ -59,10 +58,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: ${{ env.EXPORT_NAME }}-linux
-          path: build/linux
+          name: LinuxX11.zip
+          path: ./
       - name: Deploy to Itch.io (Linux)
-        run: butler push build/linux ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:linux
+        run: butler push ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:linux
         env:
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
 
@@ -73,8 +72,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: ${{ env.EXPORT_NAME }}-windows
-          path: build/windows
+          name: Windows.zip
+          path: ./
       - name: Deploy to Itch.io (Windows)
         run: butler push build/windows ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:windows
         env:
@@ -87,8 +86,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: ${{ env.EXPORT_NAME }}-mac
-          path: build/mac
+          name: macOS.zip
+          path: ./
       - name: Deploy to Itch.io (Mac)
         run: butler push build/mac ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:mac
         env:
@@ -101,8 +100,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          name: ${{ env.EXPORT_NAME }}-web
-          path: build/web
+          name: HTML5.zip
+          path: ./
       - name: Deploy to Itch.io (Web)
         run: butler push build/web ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:web
         env:
