@@ -41,15 +41,26 @@ jobs:
           archive_output: true
           cache: false
           wine_path: ${{ env.WINE_PATH }}
-      - name: Upload Exported Game Artifacts
+      - name: Upload HTML5
         uses: actions/upload-artifact@v4
         with:
-          name: exported-games
-          path: |
-            /home/runner/.local/share/godot/archives/HTML5.zip
-            /home/runner/.local/share/godot/archives/LinuxX11.zip
-            /home/runner/.local/share/godot/archives/Windows.zip
-            /home/runner/.local/share/godot/archives/macOS.zip
+          name: HTML5.zip
+          path: /home/runner/.local/share/godot/archives/HTML5.zip
+      - name: Upload Linux
+        uses: actions/upload-artifact@v4
+        with:
+          name: LinuxX11.zip
+          path: /home/runner/.local/share/godot/archives/LinuxX11.zip
+      - name: Upload Windows
+        uses: actions/upload-artifact@v4
+        with:
+          name: Windows.zip
+          path: /home/runner/.local/share/godot/archives/Windows.zip
+      - name: Upload MacOS
+        uses: actions/upload-artifact@v4
+        with:
+          name: macOS.zip
+          path: /home/runner/.local/share/godot/archives/macOS.zip
 
   deploy-to-itchio-linux:
     runs-on: ubuntu-latest
