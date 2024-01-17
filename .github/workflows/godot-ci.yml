@@ -29,20 +29,27 @@ jobs:
           path: .godot/imported/
           key: import-assets-${{ runner.os }}-${{ github.sha }}
       - name: install wine
-        id: wine_install
         run: |
           sudo apt install wine64
-          echo "WINE_PATH=$(which wine64)" >> $GITHUB_OUTPUT
+          echo "WINE_PATH=$(which wine64)" >> $GITHUB_ENV
       - name: Export Game using Godot
-        id: export
         uses: firebelley/godot-export@v5.2.1
         with:
           godot_executable_download_url: "https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}_linux.x86_64.zip"
           godot_export_templates_download_url: "https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}_export_templates.tpz"
           relative_project_path: "./godot"
           archive_output: true
-          cache: false #disable cache for now
-          wine_path: ${{ steps.wine_install.outputs.WINE_PATH }}
+          cache: false
+          wine_path: ${{ env.WINE_PATH }}
+      - name: Upload Exported Game Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: exported-games
+          path: |
+            /home/runner/.local/share/godot/archives/HTML5.zip
+            /home/runner/.local/share/godot/archives/LinuxX11.zip
+            /home/runner/.local/share/godot/archives/Windows.zip
+            /home/runner/.local/share/godot/archives/macOS.zip
 
   deploy-to-itchio-linux:
     runs-on: ubuntu-latest
