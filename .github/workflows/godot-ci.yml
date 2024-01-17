@@ -52,7 +52,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: LinuxX11.zip
-          path: ./
+          path: /home/runner/.local/share/godot/archives
       - name: Deploy to Itch.io (Linux)
         run: butler push ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:linux
         env:
@@ -66,7 +66,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: Windows.zip
-          path: ./
+          path: /home/runner/.local/share/godot/archives
       - name: Deploy to Itch.io (Windows)
         run: butler push build/windows ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:windows
         env:
@@ -80,7 +80,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: macOS.zip
-          path: ./
+          path: /home/runner/.local/share/godot/archives
       - name: Deploy to Itch.io (Mac)
         run: butler push build/mac ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:mac
         env:
@@ -94,7 +94,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: HTML5.zip
-          path: ./
+          path: /home/runner/.local/share/godot/archives
       - name: Deploy to Itch.io (Web)
         run: butler push build/web ${{ secrets.ITCHIO_USERNAME }}/${{ secrets.ITCHIO_GAME }}:web
         env:
